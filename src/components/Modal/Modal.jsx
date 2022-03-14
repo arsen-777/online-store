@@ -14,6 +14,7 @@ export default function Modal({
 	clearAllItems,
 }) {
 	const childRef = useRef();
+
 	// console.log(childRef);
 
 	return (

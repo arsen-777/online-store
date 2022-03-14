@@ -6,7 +6,6 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	margin-bottom: 25px;
 }
 .header_block > ul {
 	display: flex;

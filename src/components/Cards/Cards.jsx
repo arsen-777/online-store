@@ -17,6 +17,9 @@ export default function Cards(props) {
 							images={images}
 							brand={brand}
 							onBasket={props.onBasket}
+							countItemPlus={props.countItemPlus}
+							countItemMinus={props.countItemMinus}
+							counter={count}
 						/>
 					);
 				})}

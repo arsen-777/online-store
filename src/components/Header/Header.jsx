@@ -22,7 +22,9 @@ function Header(props) {
 				<div>
 					<div onClick={props.openModal} className={bubuStyle.header_btn}>
 						<img src={cart} alt="" />
-						<p className={bubuStyle.count_ctyle}>{props.basket.length}</p>
+						<p className={bubuStyle.count_ctyle}>
+							{props.basket.filter((item) => item.count > 0).length}
+						</p>
 					</div>
 				</div>
 			</header>
