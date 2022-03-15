@@ -7,7 +7,7 @@ export default function Cards(props) {
 	return (
 		<div className={cardsStyle.cards}>
 			{props.data.length > 0 &&
-				props.data.map(({ id, title, price, images, brand, count }) => {
+				props.data.map(({ id, title, price, images, brand }) => {
 					return (
 						<GetProducts
 							key={id}
@@ -19,7 +19,7 @@ export default function Cards(props) {
 							onBasket={props.onBasket}
 							countItemPlus={props.countItemPlus}
 							countItemMinus={props.countItemMinus}
-							counter={count}
+							basket={props.basket}
 						/>
 					);
 				})}

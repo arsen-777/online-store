@@ -12,9 +12,17 @@ export default function GetProducts({
 	onBasket,
 	countItemPlus,
 	countItemMinus,
+	basket,
 }) {
 	const [count, setCount] = useState(1);
 	const [isAdd, setIsAdd] = useState(false);
+
+	const addCount = () => {
+		countItemPlus(id);
+	};
+	const minusCount = () => {
+		countItemMinus(id);
+	};
 
 	return (
 		<div className={cardsStyle.cards_block}>
@@ -31,19 +39,14 @@ export default function GetProducts({
 							className={cardsStyle.btn_style}
 							src={plus}
 							alt=""
-							onClick={() => {
-								countItemPlus(id);
-							}}
+							onClick={addCount}
 						/>
-						<p>{count}</p>
+						<p>{basket.find((item) => item.id === id)?.count || 0}</p>
 						<img
 							className={cardsStyle.btn_style}
 							src={minus}
 							alt=""
-							onClick={() => {
-								countItemMinus(id);
-								setIsAdd(false);
-							}}
+							onClick={minusCount}
 						/>
 					</div>
 				)}

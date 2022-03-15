@@ -14,7 +14,16 @@ export default function ByItem({
 	countItemMinus,
 	deleteItem,
 }) {
-	// const [itemCount, setitemCount] = useState(count);
+	const addItem = () => {
+		countItemPlus(id);
+	};
+
+	const minusItem = () => {
+		countItemMinus(id);
+	};
+	const delItem = () => {
+		deleteItem(id);
+	};
 	return (
 		<div>
 			<div className={yeeStyle.modal_item_block}>
@@ -27,14 +36,14 @@ export default function ByItem({
 				</div>
 				<div className={yeeStyle.plus_minus}>
 					<div>
-						<img src={plus} onClick={() => countItemPlus(id)} alt="" />
+						<img src={plus} onClick={addItem} alt="" />
 					</div>
 					<span>
 						<h3>{count}</h3>
 					</span>
 
 					<div>
-						<img src={minus} onClick={() => countItemMinus(id)} alt="" />
+						<img src={minus} onClick={minusItem} alt="" />
 					</div>
 				</div>
 
@@ -44,7 +53,7 @@ export default function ByItem({
 					</p>
 				</div>
 				<div className={yeeStyle.close_item}>
-					<img src={closeBtn} onClick={() => deleteItem(id)} alt="" />
+					<img src={closeBtn} onClick={delItem} alt="" />
 				</div>
 			</div>
 		</div>

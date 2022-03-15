@@ -35,18 +35,9 @@ function App() {
 		fetch("https://dummyjson.com/products")
 			.then((data) => data.json())
 			.then((res) => {
-				setData(
-					res.products.map((el) => {
-						return { ...el, count: 1 };
-					})
-				);
+				setData(res.products);
 			});
 	}, []);
-
-	useEffect(() => {
-		console.log(data);
-	}, [data]);
-
 	const onBasket = (newItem) => {
 		const index = basket.findIndex((el) => el.id === newItem.id);
 
@@ -56,9 +47,7 @@ function App() {
 					...prev[index],
 					count: prev[index].count + newItem.count,
 				};
-
 				const newBasket = [...prev];
-				// newItem.count = newItem.count + newBasket[index].count;
 				newBasket[index] = newObject;
 				return newBasket;
 			} else {
@@ -101,6 +90,7 @@ function App() {
 				countItemPlus={countItemPlus}
 				countItemMinus={countItemMinus}
 				count={basket.count}
+				basket={basket}
 			/>
 			{isModalOpen && (
 				<Modal
